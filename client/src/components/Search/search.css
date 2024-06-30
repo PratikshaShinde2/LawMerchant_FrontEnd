@@ -74,3 +74,21 @@
     background-color: rgb(141, 1, 157);
     border-color: rgb(141, 1, 157);
 }
+.btn-outline-custom {
+    background-color: transparent;
+    color: #007bff;
+    border: 1px solid #007bff;
+}
+
+.btn-outline-custom:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-custom-selected {
+    background-color: rgb(99, 5, 168);
+    color: white !important; 
+    border-color: rgb(99, 5, 168);
+}
+
+
