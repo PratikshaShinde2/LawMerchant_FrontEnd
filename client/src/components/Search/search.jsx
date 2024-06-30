@@ -2,6 +2,7 @@ import React from "react";
 import './search.css';
 import lazyani from '../../animations/lazy404.json';
 import Lottie from 'lottie-react';
+import { Link } from "react-router-dom";
 
 function Search() {
     return (
@@ -34,9 +35,12 @@ function Search() {
             </div>
             <div className="rules mt-4 text-center">
                 <Lottie animationData={lazyani} style={{ width: '50%'}} />
+                <Link to={"/rules"}>
                 <button className="btn btn-primary pro-btn mt-3">
-                    Verify your product
+                    Go to your product
                 </button>
+                </Link>
+                
             </div>
         </div>
     );

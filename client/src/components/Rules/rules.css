@@ -1,0 +1,29 @@
+button {
+    color: aliceblue;
+    background-color: rgb(99, 5, 168);
+    border-color: rgb(99, 5, 168);
+    width: 100%;
+}
+button:hover {
+    color: aliceblue;
+    background-color: rgb(141, 1, 157);
+    border-color: rgb(141, 1, 157);
+}
+.displayrules{
+    color: gray;
+    border: solid rgba(0, 0, 0, 0.267);
+    padding: 4rem;
+    border-radius: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+.displayrules h3{
+    text-align: center;
+}
+.checkbx{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
