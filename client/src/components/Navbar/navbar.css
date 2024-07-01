@@ -1,20 +1,23 @@
 /* navbar.css */
 .navbar {
     background-color: rgb(255, 255, 255);
+    /* box-shadow: 1px 1px 1px 1px rgba(102, 4, 127, 0.189);
+    border-radius: 1rem; */
+    width: 100%;
 }
 
 .navbar-brand h2 {
-    margin: 0; /* Remove margin from h2 */
+    margin: 0; 
 }
 
 .navbar-nav {
-    gap: 2rem; /* Adjust gap between nav items */
+    gap: 2rem; 
 }
 
 .nav-link {
     cursor: pointer;
     font-size: large;
-    color: black; /* Ensure default color is black */
+    color: black; 
 }
 
 .nav-link:hover {
@@ -31,4 +34,8 @@
 .nav-btn:hover {
     background-color: rgb(141, 1, 157);
     border-color: rgb(141, 1, 157);
+}
+a{
+    text-decoration: none;
+    list-style: none;
 }

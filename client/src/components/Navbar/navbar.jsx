@@ -1,21 +1,25 @@
 import React from "react";
 import './navbar.css';
+import { Link } from "react-router-dom";
+import logo from '../../images/Logo.svg'
 
 function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-white">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">
-                    <h2>Law Merchant</h2>
-                </a>
+            <Link to={'/'}><a className="navbar-brand" href="#">
+                    <img src={logo} height="70px"></img>
+                </a></Link>
+                
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ms-auto">
-                        <li className="nav-item">
+                    <Link to={"/"}> <li className="nav-item">
                             <a className="nav-link" href="#">Home</a>
-                        </li>
+                        </li></Link>
+                       
                         <li className="nav-item">
                             <a className="nav-link" href="#">Search</a>
                         </li>

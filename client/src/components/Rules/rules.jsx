@@ -1,74 +1,90 @@
 import React, { useState } from "react";
-import { Pie } from 'react-chartjs-2';
-import 'chart.js/auto'; 
-import './rules.css'; 
+import { Bar } from 'react-chartjs-2';
+import 'chart.js/auto';
+import './rules.css';
+import graph from '../../animations/graph-pie.json'
+import Lottie from "lottie-react";
 
 function Rules() {
     const [checkedItems, setCheckedItems] = useState(Array(11).fill(false));
-    const handleCheckboxChange = (index) => {
+    const [currentRuleIndex, setCurrentRuleIndex] = useState(0);
+
+    const handleMarkAsChecked = () => {
         const updatedCheckedItems = [...checkedItems];
-        updatedCheckedItems[index] = !updatedCheckedItems[index];
+        updatedCheckedItems[currentRuleIndex] = !updatedCheckedItems[currentRuleIndex];
         setCheckedItems(updatedCheckedItems);
     };
 
-    const checkedCount = checkedItems.filter(item => item).length;
-    const totalCount = checkedItems.length;
+    const handleNextClick = () => {
+        setCurrentRuleIndex((prevIndex) => (prevIndex + 1) % checkedItems.length);
+    };
 
-    const percentage = totalCount > 0 ? ((checkedCount / totalCount) * 100).toFixed(2) : 0;
+    const handlePrevClick = () => {
+        setCurrentRuleIndex((prevIndex) => (prevIndex - 1 + checkedItems.length) % checkedItems.length);
+    };
+
+    const checkedCount = checkedItems.filter(item => item).length;
+    const uncheckedCount = checkedItems.length - checkedCount;
 
     const data = {
         labels: ['Checked', 'Unchecked'],
         datasets: [{
-            data: [percentage, 100 - percentage],
-            backgroundColor: ['#36a2eb', '#ff6384'],
-            hoverBackgroundColor: ['#36a2eb', '#ff6384'],
-            borderWidth: 1
+            label: 'Rules Status',
+            data: [checkedCount, uncheckedCount],
+            backgroundColor: ['rgb(141, 1, 157)', 'rgb(99, 5, 168)'],
+            borderWidth: 5
         }]
     };
 
     const options = {
+        indexAxis: 'y',
         plugins: {
             legend: {
-                display: true,
-                position: 'bottom'
+                display: false
             },
             tooltip: {
                 callbacks: {
-                    label: function(tooltipItem) {
-                        return tooltipItem.label + ': ' + tooltipItem.raw.toFixed(2) + '%';
+                    label: function (tooltipItem) {
+                        return tooltipItem.label + ': ' + tooltipItem.raw;
                     }
                 }
             }
         },
         responsive: true,
-        maintainAspectRatio: false 
+        maintainAspectRatio: false
     };
 
     return (
-        <div className="rulepg">
-            <div className="displayrules">
-                    <h3>The rules related to your product are as follows..</h3>
-                    <div className="checkbx">
-                        {Array.from({ length: 11 }, (_, i) => (
-                            <div key={i} className="form-check">
-                                <input
-                                    className="form-check-input"
-                                    type="checkbox"
-                                    value=""
-                                    id={`flexCheckDefault${i}`}
-                                    checked={checkedItems[i]}
-                                    onChange={() => handleCheckboxChange(i)}
-                                />
-                                <label className="form-check-label" htmlFor={`flexCheckDefault${i}`}>
-                                    Rule {i + 1}
-                                </label>
+        <div className="container">
+            <div className="row">
+                <div className="col-lg-8 col-md-8 col-sm-12 rulepg">
+                    <div className="displayrules">
+                        <h3>The rules related to your product are as follows..</h3>
+                        <div className="checkbx">
+                            <div className="rule-item">
+                                <span>Rule {currentRuleIndex + 1}</span>
                             </div>
-                        ))}
+                        </div>
+                        <div className="ru-btns">
+                            <button
+                                className={`btn btn-primary pro-btn2 mt-3 ${checkedItems[currentRuleIndex] ? 'checked' : ''}`}
+                                onClick={handleMarkAsChecked}>
+                                {checkedItems[currentRuleIndex] ? "Unmark" : "Mark as Checked"}
+                            </button>
+                            <button className="btn btn-primary pro-btn mt-3" onClick={handlePrevClick}>Previous</button>
+                            <button className="btn btn-primary pro-btn mt-3" onClick={handleNextClick}>Next</button>
+                        </div>
                     </div>
-                   
-            </div>
-            <div className="chart-container">
-                        <Pie data={data} options={options} />
+                </div>
+                
+                <div className="col-lg-4 col-md-4 col-sm-12 chart-container">
+                    <Bar data={data} options={options} />
+                </div>
+                <div>
+                    <Lottie className="bar-ani" animationData={graph} style={{height:"40%"}}/>
+                </div>
+                
+                  
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './search.css';
-import lazyani from '../../animations/lazy404.json';
+import search from '../../animations/search.json';
 import Lottie from 'lottie-react';
 import { Link } from "react-router-dom";
 
@@ -34,7 +34,7 @@ function Search() {
                 </form>
             </div>
             <div className="rules mt-4 text-center">
-                <Lottie animationData={lazyani} style={{ width: '50%' }} />
+                <Lottie animationData={search} style={{ width: '40%' }} />
                 <Link to={"/rules"}>
                     <button className="btn btn-primary pro-btn mt-3">
                         Go to your product
