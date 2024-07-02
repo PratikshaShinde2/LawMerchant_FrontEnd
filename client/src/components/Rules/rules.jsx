@@ -25,12 +25,13 @@ function Rules() {
 
     const checkedCount = checkedItems.filter(item => item).length;
     const uncheckedCount = checkedItems.length - checkedCount;
+    const totalcount = checkedCount + uncheckedCount;
 
     const data = {
-        labels: ['Checked', 'Unchecked'],
+        labels: ['Checked', 'Total count'],
         datasets: [{
             label: 'Rules Status',
-            data: [checkedCount, uncheckedCount],
+            data: [checkedCount, totalcount],
             backgroundColor: ['rgb(141, 1, 157)', 'rgb(99, 5, 168)'],
             borderWidth: 5
         }]
