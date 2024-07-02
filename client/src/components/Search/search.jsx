@@ -20,6 +20,11 @@ function Search() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!selectedCategory) {
+            alert('Please select a category');
+            return;
+        }
+
         const data = { category: selectedCategory, product: searchedProduct };
         setLoading(true); // Set loading to true before fetching data
         try {
