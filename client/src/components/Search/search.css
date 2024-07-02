@@ -90,5 +90,33 @@
     color: white !important; 
     border-color: rgb(99, 5, 168);
 }
-
+.result-buttons{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.result-buttons button{
+    width: 100%;
+    text-align: left;
+}
+.category-secondary{
+    background-color: white;
+    color: black;
+}
+.category-secondary:hover{
+    color: aliceblue;
+    background-color: rgb(141, 1, 157);
+    border-color: rgb(141, 1, 157);
+}
+.category-primary{
+    background-color: rgb(99, 5, 168);
+    color: white !important; 
+    border-color: rgb(99, 5, 168);
+}
+.category-primary:hover{
+    color: aliceblue;
+    background-color: rgb(141, 1, 157);
+    border-color: rgb(141, 1, 157);
+}
 

@@ -9,6 +9,7 @@ function Search() {
     const [searchedProduct, setSearchedProduct] = useState('');
     const [results, setResults] = useState(null); // State to store results
     const [loading, setLoading] = useState(false); // State to handle loading
+    const [selectedCategories, setSelectedCategories] = useState(new Set()); // State to store selected categories
 
     const handleCategoryClick = (category) => {
         setSelectedCategory(category);
@@ -16,6 +17,18 @@ function Search() {
 
     const handleSearchChange = (e) => {
         setSearchedProduct(e.target.value);
+    };
+
+    const handleCategorySelect = (category) => {
+        setSelectedCategories((prevSelectedCategories) => {
+            const newSelectedCategories = new Set(prevSelectedCategories);
+            if (newSelectedCategories.has(category)) {
+                newSelectedCategories.delete(category);
+            } else {
+                newSelectedCategories.add(category);
+            }
+            return newSelectedCategories;
+        });
     };
 
     const handleSubmit = async (e) => {
@@ -36,7 +49,6 @@ function Search() {
             const response = await fetch(`http://127.0.0.1:8000/getProductCategories?${queryParams}`, {
                 method: 'GET'
             });
-
 
             if (response.ok) {
                 const resultData = await response.json();
@@ -89,8 +101,17 @@ function Search() {
                 ) : results ? (
                     <div>
                         <h4>Search Results:</h4>
-                        {loading && <p>Loading...</p>}
-            {results && <div>{JSON.stringify(results)}</div>}
+                        <div className="result-buttons">
+                            {results.categories.map((category, index) => (
+                                <button
+                                    key={index}
+                                    className={`btn m-2 ${selectedCategories.has(category) ? 'btn-primary category-primary' : 'btn-secondary category-secondary'}`}
+                                    onClick={() => handleCategorySelect(category)}
+                                >
+                                    {category}
+                                </button>
+                            ))}
+                        </div>
                     </div>
                 ) : (
                     <Lottie animationData={search} style={{ width: '40%' }} />
