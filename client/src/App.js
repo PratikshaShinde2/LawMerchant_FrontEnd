@@ -4,6 +4,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Page1 from './pages/page1';
 import Page2 from './pages/page2';
+import Page3 from './pages/page3';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
           
         </Route>
         <Route path="/rules" element={<Page2/>} />
+        <Route path="/contact" element={<Page3 />} />
       </Routes>
     </BrowserRouter>
     </div>
