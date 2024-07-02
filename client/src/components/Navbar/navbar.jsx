@@ -24,7 +24,7 @@ function Navbar() {
                             <a className="nav-link" href="#">Search</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">About</a>
+                        <Link className="nav-link" to="/" state={{ scrollToAbout: true }}>About</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/contact">Contact Us</Link>

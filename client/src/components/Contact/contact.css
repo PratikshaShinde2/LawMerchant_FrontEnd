@@ -2,7 +2,7 @@
     width: 800px;
     margin: 50px;
     padding: 2rem; 
-    border: 1px solid rgba(0, 0, 0, 0.267);
+    border: 1px solid rgba(124, 68, 141, 0.267);
     border-radius: 1rem; 
     background-color: #f9f9f9;
     display: flex;
@@ -34,7 +34,7 @@
     width: 100%;
     padding: 0.5rem;
     border: 1.5px solid #bbbbbb;
-    border-radius: 12px;
+    border-radius: 10px;
     background-color: #e7e6e7;
 }
 

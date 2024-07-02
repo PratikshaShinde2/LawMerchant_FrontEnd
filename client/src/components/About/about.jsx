@@ -9,19 +9,16 @@ function About(){
                 <h2>About Us</h2>
             </div>
             <div className="titldes"> 
-
-           
             <Abt 
-                title="Title"
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisi vel consectetur euismod, nisl nisl aliquam nisl, eu aliquam nisl nisl eu nisl. Nulla facilisi. Aenean commodo consequat urna, nec gravida felis facilisis id. Duis nec lorem non metus consectetur accumsan. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tincidunt quam a elit ornare, a pellentesque libero vehicula. Donec vel laoreet urna, a viverra augue. Suspendisse potenti."
-            />
+                title="LawMerchant Simplified"
+                description="Our project is all about creating a user-friendly system to help e-commerce merchants to manage their compliance with regulations. Whether it's in Grocery, Electronics, F&B, Fashion, or Agriculture, our platform offers a clear dashboard overview, easy navigation by industry categories, and powerful search tools. We provide detailed pages for each regulation, visual indicators to check regulation for products and their correctness status.We are here simplify compliance tasks so e-commerce merchants can focus on what they do best, with confidence that they're meeting all necessary regulations and requirements for their products." />
              <Abt 
-                title="Title"
-                description="Vestibulum eget arcu nec neque consequat fringilla. Quisque non mauris eu nulla luctus congue. Etiam varius massa sit amet urna suscipit facilisis. Integer feugiat, justo at hendrerit tempor, justo sapien sagittis quam, eu sodales risus turpis et lectus. In hac habitasse platea dictumst. Curabitur blandit fringilla est non dapibus. Curabitur vitae posuere sem. Vivamus fermentum ipsum eget odio varius, ac fringilla libero condimentum. Etiam eu felis nec ligula feugiat sodales. Fusce sed velit ut dolor tincidunt ultrices. Proin ut quam lacus. Suspendisse potenti."
-            />
+                title="Our Vision"
+                description="The vision of our project is to create a platform that simplifies compliance for businesses across various sectors. By gathering large-scale data from government repositories and presenting only relevant regulatory information, we save businesses time and effort. Our goal is to provide clear and detailed guidance through intuitive tools, helping businesses manage regulatory requirements easily. This approach reduces risks, enhances engagement with visually appealing features, and allows businesses to focus more on their core activities."
+                />
              <Abt 
-                title="Title"
-                description="Mauris sodales, sapien eu suscipit malesuada, lacus est tristique metus, a sollicitudin lorem lectus eu urna. Vestibulum et urna libero. Nam sit amet ipsum at odio venenatis laoreet. Donec viverra, libero at feugiat finibus, urna nulla elementum magna, nec varius odio mi nec ligula. Cras dapibus leo id urna convallis, at fermentum massa sagittis. Proin vestibulum, mi in tincidunt sodales, lorem leo facilisis nisi, id scelerisque metus magna et sapien. Nullam vulputate justo id libero laoreet, nec vehicula nisi tincidunt. Fusce et erat a urna volutpat tincidunt id nec elit. Nullam hendrerit ante eros, nec sagittis felis luctus ut."
+                title="Driving Compliance Forward"
+                description="Explore our ongoing commitment to innovation in compliance management. Highlight upcoming features and enhancements that will further simplify regulatory tasks for businesses. Discuss how we're leveraging advanced technologies like AI or machine learning to enhance data accuracy and predictive analytics capabilities. This card aims to showcase our forward-thinking approach and our dedication to continuously improving the compliance experience for our users."
             />
              </div>
             
