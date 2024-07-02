@@ -5,10 +5,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Page1 from './pages/page1';
 import Page2 from './pages/page2';
 import Page3 from './pages/page3';
+import { RegulationsProvider } from './contexts/RegulationsContext';
 
 function App() {
 
   return (
+    <RegulationsProvider>
     <div className="App">
      <BrowserRouter>
       <Routes>
@@ -20,6 +22,7 @@ function App() {
       </Routes>
     </BrowserRouter>
     </div>
+    </RegulationsProvider>
   );
 }
 export default App;

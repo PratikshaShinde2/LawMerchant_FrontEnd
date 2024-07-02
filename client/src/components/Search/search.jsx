@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import './search.css';
 import search from '../../animations/search.json';
 import Lottie from 'lottie-react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { RegulationsContext } from '../../contexts/RegulationsContext';
 
 function Search() {
     const [selectedCategory, setSelectedCategory] = useState('');
     const [searchedProduct, setSearchedProduct] = useState('');
-    const [results, setResults] = useState(null); // State to store results
-    const [loading, setLoading] = useState(false); // State to handle loading
-    const [selectedCategories, setSelectedCategories] = useState(new Set()); // State to store selected categories
+    const [results, setResults] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [selectedCategories, setSelectedCategories] = useState(new Set());
+
+    const { setRegulations } = useContext(RegulationsContext);
+    const navigate = useNavigate();
 
     const handleCategoryClick = (category) => {
         setSelectedCategory(category);
@@ -31,6 +35,38 @@ function Search() {
         });
     };
 
+    const sendSelectedCategories = async () => {
+        setLoading(true);
+        try {
+            const data = {
+                product: searchedProduct,
+                productType: selectedCategory,
+                categories: Array.from(selectedCategories)
+            };
+
+            const response = await fetch('http://127.0.0.1:8000/getRegulationsFromCategory', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                const regulations = await response.json();
+                console.log('Categories sent successfully:', regulations);
+                setRegulations(regulations); // Update the regulations in context
+                navigate("/rules");
+            } else {
+                console.error('Failed to send categories');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!selectedCategory) {
@@ -39,7 +75,7 @@ function Search() {
         }
 
         const data = { category: selectedCategory, product: searchedProduct };
-        setLoading(true); // Set loading to true before fetching data
+        setLoading(true);
         try {
             const queryParams = new URLSearchParams({
                 product: searchedProduct,
@@ -52,16 +88,15 @@ function Search() {
 
             if (response.ok) {
                 const resultData = await response.json();
-                console.log(resultData)
-                setResults(resultData); // Store the results
-                setLoading(false); // Set loading to false after data is fetched
+                console.log(resultData);
+                setResults(resultData);
             } else {
                 console.error('Failed to fetch data');
-                setLoading(false); // Set loading to false in case of error
             }
         } catch (error) {
             console.error('Error:', error);
-            setLoading(false); // Set loading to false in case of error
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -98,7 +133,7 @@ function Search() {
             <div className="rules mt-4 text-center">
                 {loading ? (
                     <Lottie animationData={search} style={{ width: '40%' }} />
-                ) : results ? (
+                ) : results && results.categories ? (
                     <div>
                         <h4>Search Results:</h4>
                         <div className="result-buttons">
@@ -116,11 +151,9 @@ function Search() {
                 ) : (
                     <Lottie animationData={search} style={{ width: '40%' }} />
                 )}
-                <Link to={"/rules"}>
-                    <button className="btn btn-primary pro-btn mt-3">
-                        Go to product laws!
-                    </button>
-                </Link>
+                <button className="btn btn-primary pro-btn mt-3" onClick={sendSelectedCategories}>
+                    Go to product laws!
+                </button>
             </div>
         </div>
     );
