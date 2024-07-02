@@ -22,18 +22,20 @@ function Search() {
         e.preventDefault();
         const data = { category: selectedCategory, product: searchedProduct };
         setLoading(true); // Set loading to true before fetching data
-
         try {
-            const response = await fetch('/your-backend-endpoint', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
+            const queryParams = new URLSearchParams({
+                product: searchedProduct,
+                productType: selectedCategory
+            }).toString();
+
+            const response = await fetch(`http://127.0.0.1:8000/getProductCategories?${queryParams}`, {
+                method: 'GET'
             });
+
 
             if (response.ok) {
                 const resultData = await response.json();
+                console.log(resultData)
                 setResults(resultData); // Store the results
                 setLoading(false); // Set loading to false after data is fetched
             } else {
@@ -51,7 +53,7 @@ function Search() {
             <div className="category text-center">
                 <h3>Select the category of your product..</h3>
                 <div className="row cat-btns">
-                    {["Food", "Electronics", "Agriculture", "Hardware", "General"].map((category) => (
+                    {["food", "Electronics", "Agriculture", "Hardware", "General"].map((category) => (
                         <div key={category} className="col-6 col-sm-4 col-md-2 mb-2">
                             <button
                                 className={`btn w-100 ${selectedCategory === category ? 'btn-custom-selected' : 'btn-outline-custom'}`}
@@ -82,11 +84,8 @@ function Search() {
                 ) : results ? (
                     <div>
                         <h4>Search Results:</h4>
-                        <ul>
-                            {results.map((result, index) => (
-                                <li key={index}>{result}</li>
-                            ))}
-                        </ul>
+                        {loading && <p>Loading...</p>}
+            {results && <div>{JSON.stringify(results)}</div>}
                     </div>
                 ) : (
                     <Lottie animationData={search} style={{ width: '40%' }} />
