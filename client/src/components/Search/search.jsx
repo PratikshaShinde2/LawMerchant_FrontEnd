@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 function Search() {
     const [selectedCategory, setSelectedCategory] = useState('');
     const [searchedProduct, setSearchedProduct] = useState('');
+    const [results, setResults] = useState(null); // State to store results
+    const [loading, setLoading] = useState(false); // State to handle loading
 
     const handleCategoryClick = (category) => {
         setSelectedCategory(category);
@@ -19,6 +21,7 @@ function Search() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const data = { category: selectedCategory, product: searchedProduct };
+        setLoading(true); // Set loading to true before fetching data
 
         try {
             const response = await fetch('/your-backend-endpoint', {
@@ -30,15 +33,16 @@ function Search() {
             });
 
             if (response.ok) {
-                console.log('Data sent successfully');
-                // Handle success, maybe redirect or show a success message
+                const resultData = await response.json();
+                setResults(resultData); // Store the results
+                setLoading(false); // Set loading to false after data is fetched
             } else {
-                console.error('Failed to send data');
-                // Handle failure, show error message
+                console.error('Failed to fetch data');
+                setLoading(false); // Set loading to false in case of error
             }
         } catch (error) {
             console.error('Error:', error);
-            // Handle error, show error message
+            setLoading(false); // Set loading to false in case of error
         }
     };
 
@@ -73,7 +77,20 @@ function Search() {
                 </form>
             </div>
             <div className="rules mt-4 text-center">
-                <Lottie animationData={search} style={{ width: '40%' }} />
+                {loading ? (
+                    <Lottie animationData={search} style={{ width: '40%' }} />
+                ) : results ? (
+                    <div>
+                        <h4>Search Results:</h4>
+                        <ul>
+                            {results.map((result, index) => (
+                                <li key={index}>{result}</li>
+                            ))}
+                        </ul>
+                    </div>
+                ) : (
+                    <Lottie animationData={search} style={{ width: '40%' }} />
+                )}
                 <Link to={"/rules"}>
                     <button className="btn btn-primary pro-btn mt-3">
                         Go to your product
