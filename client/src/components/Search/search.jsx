@@ -6,10 +6,42 @@ import { Link } from "react-router-dom";
 
 function Search() {
     const [selectedCategory, setSelectedCategory] = useState('');
+    const [searchedProduct, setSearchedProduct] = useState('');
 
     const handleCategoryClick = (category) => {
         setSelectedCategory(category);
     };
+
+    const handleSearchChange = (e) => {
+        setSearchedProduct(e.target.value);
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const data = { category: selectedCategory, product: searchedProduct };
+
+        try {
+            const response = await fetch('/your-backend-endpoint', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                console.log('Data sent successfully');
+                // Handle success, maybe redirect or show a success message
+            } else {
+                console.error('Failed to send data');
+                // Handle failure, show error message
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            // Handle error, show error message
+        }
+    };
+
     return (
         <div className="container rule-search">
             <div className="category text-center">
@@ -28,8 +60,15 @@ function Search() {
                 </div>
             </div>
             <div className="searchbar text-center mt-4">
-                <form className="d-flex justify-content-center" role="search">
-                    <input className="form-control me-2 w-50" type="search" placeholder="Search your product" aria-label="Search" />
+                <form className="d-flex justify-content-center" role="search" onSubmit={handleSubmit}>
+                    <input
+                        className="form-control me-2 w-50"
+                        type="search"
+                        placeholder="Search your product"
+                        aria-label="Search"
+                        value={searchedProduct}
+                        onChange={handleSearchChange}
+                    />
                     <button className="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
@@ -44,4 +83,5 @@ function Search() {
         </div>
     );
 }
+
 export default Search;
