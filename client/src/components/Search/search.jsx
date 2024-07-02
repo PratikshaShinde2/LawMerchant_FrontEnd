@@ -118,7 +118,7 @@ function Search() {
                 )}
                 <Link to={"/rules"}>
                     <button className="btn btn-primary pro-btn mt-3">
-                        Go to your product
+                        Go to product laws!
                     </button>
                 </Link>
             </div>
