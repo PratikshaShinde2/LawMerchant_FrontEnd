@@ -9,6 +9,13 @@ function Rules() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [checkedRegulations, setCheckedRegulations] = useState({});
     const [reportedRegulations, setReportedRegulations] = useState({});
+    const [isFormVisible, setIsFormVisible] = useState(false);
+    const [formData, setFormData] = useState({
+        isRegulation: '',
+        relatedToProduct: '',
+        applicableProduct: '',
+        suggestion: ''
+    });
 
     // Flatten the details array
     const detailsArray = regulations && regulations.regulations 
@@ -31,10 +38,24 @@ function Rules() {
     };
 
     const handleReport = () => {
+        setIsFormVisible(!isFormVisible);
+    };
+
+    const handleFormChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
         setReportedRegulations((prevReported) => ({
             ...prevReported,
-            [currentIndex]: !prevReported[currentIndex],
+            [currentIndex]: formData
         }));
+        setIsFormVisible(false);
     };
 
     if (!regulations || !regulations.regulations) {
@@ -77,32 +98,103 @@ function Rules() {
                         >
                             {checkedRegulations[currentIndex] ? 'Unmark' : 'Mark as Check'}
                         </button>
-                        
-                            <button onClick={handlePrevious}>Previous</button>
-                            <button onClick={handleNext}>Next</button>
-                        
+                        <button onClick={handlePrevious}>Previous</button>
+                        <button onClick={handleNext}>Next</button>
+                        <button onClick={handleReport}>
+                            {isFormVisible ? 'Cancel' : 'Report this rule'}
+                        </button>
                     </div>
-                   
                     <p>
                         Regulation {currentIndex + 1} of {totalCount}
                     </p>
-                    <label>
-                            <input 
-                                type="checkbox" 
-                                checked={reportedRegulations[currentIndex] || false} 
-                                onChange={handleReport} 
-                            />
-                            Report this rule
-                        </label>
                 </div>
-                
             )}
+            
+            <div className="reportform">
+                {isFormVisible && (
+                    <div className="report-form">
+                        <h2>Report Regulation</h2>
+                        <form onSubmit={handleSubmit}>
+                            <label>
+                                Is this a regulation?
+                                <div className="checkbx">
+                                    <label>
+                                        <input 
+                                            type="radio" 
+                                            name="isRegulation" 
+                                            value="yes" 
+                                            onChange={handleFormChange}
+                                            checked={formData.isRegulation === 'yes'}
+                                        />
+                                        Yes
+                                    </label>
+                                    <label>
+                                        <input 
+                                            type="radio" 
+                                            name="isRegulation" 
+                                            value="no" 
+                                            onChange={handleFormChange}
+                                            checked={formData.isRegulation === 'no'}
+                                        />
+                                        No
+                                    </label>
+                                </div>
+                            </label>
+                            <label>
+                                Is this regulation related to your searched product?
+                                <div className="checkbx">
+                                    <label>
+                                        <input 
+                                            type="radio" 
+                                            name="relatedToProduct" 
+                                            value="yes" 
+                                            onChange={handleFormChange}
+                                            checked={formData.relatedToProduct === 'yes'}
+                                        />
+                                        Yes
+                                    </label>
+                                    <label>
+                                        <input 
+                                            type="radio" 
+                                            name="relatedToProduct" 
+                                            value="no" 
+                                            onChange={handleFormChange}
+                                            checked={formData.relatedToProduct === 'no'}
+                                        />
+                                        No
+                                    </label>
+                                </div>
+                            </label>
+                            {formData.relatedToProduct === 'no' && (
+                                <label>
+                                    For which product is it applicable?
+                                    <input 
+                                        type="text" 
+                                        name="applicableProduct" 
+                                        value={formData.applicableProduct} 
+                                        onChange={handleFormChange}
+                                    />
+                                </label>
+                            )}
+                            <label>
+                                Any other suggestion?
+                                <textarea 
+                                    name="suggestion" 
+                                    value={formData.suggestion} 
+                                    onChange={handleFormChange}
+                                />
+                            </label>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+                )}
+            </div>
+
             <div className="chart-container">
                 <p>
                     {checkedCount} of {totalCount} regulations marked
                 </p>
                 <Bar data={barData} options={options} />
-               
             </div>
         </div>
     );

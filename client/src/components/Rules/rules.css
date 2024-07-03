@@ -13,6 +13,9 @@ button:hover {
 
 .rulepg {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .displayrules {
@@ -123,5 +126,60 @@ button:hover {
     }
 }
 
+
+
+.reportform {
+    width: 80%;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.report-form {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.report-form h2 {
+    margin-top: 0;
+}
+
+.report-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.report-form form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.report-form form label .checkbx {
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.report-form form label input[type="text"],
+.report-form form label textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.report-form form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(99, 5, 168);
+    color: white;
+    cursor: pointer;
+}
+
+.report-form form button:hover {
+    background-color: rgb(141, 1, 157);
+}
 
 
