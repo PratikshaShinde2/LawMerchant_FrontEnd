@@ -98,10 +98,11 @@ function Rules() {
                 
             )}
             <div className="chart-container">
-                <Bar data={barData} options={options} />
-                <p className="bar-ani">
+                <p>
                     {checkedCount} of {totalCount} regulations marked
                 </p>
+                <Bar data={barData} options={options} />
+               
             </div>
         </div>
     );
