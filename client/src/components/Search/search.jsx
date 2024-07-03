@@ -151,7 +151,7 @@ function Search() {
                 ) : (
                     <Lottie animationData={search} style={{ width: '40%' }} />
                 )}
-                <button className="btn btn-primary pro-btn mt-3" onClick={sendSelectedCategories}>
+                <button className="btn btn-primary pro-btn pro-btng2 mt-3" onClick={sendSelectedCategories}>
                     Go to product laws!
                 </button>
             </div>
