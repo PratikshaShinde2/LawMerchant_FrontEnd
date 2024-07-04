@@ -5,6 +5,15 @@ button {
     width: 100%;
 }
 
+.docbutton {
+    color: white;
+    background-color: rgb(99, 5, 168);
+    border-color: rgb(99, 5, 168);
+    width: 30%;
+    display: block;
+    margin: 0 auto;
+}
+
 button:hover {
     color: white;
     background-color: rgb(141, 1, 157);
@@ -181,5 +190,3 @@ button:hover {
 .report-form form button:hover {
     background-color: rgb(141, 1, 157);
 }
-
-

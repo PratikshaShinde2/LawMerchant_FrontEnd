@@ -140,7 +140,20 @@ function Rules() {
                     <p>
                         Regulation {currentIndex + 1} of {totalCount}
                     </p>
-                    <a href={regulations[detailsArray[currentIndex].key]}>open</a>
+                    
+                    {regulations[detailsArray[currentIndex].key] ? (
+                        <a 
+                            href={regulations[detailsArray[currentIndex].key]} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                        >
+                            <button className="docbutton">
+                                View Original Document
+                            </button>
+                        </a>
+                    ) : (
+                        <p>No document available</p>
+                    )}
                 </div>
             )}
             
