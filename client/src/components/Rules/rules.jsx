@@ -6,7 +6,6 @@ import 'chart.js/auto';
 
 function Rules() {
     const { regulations } = useContext(RegulationsContext);
-    console.log(regulations)
     const [currentIndex, setCurrentIndex] = useState(0);
     const [checkedRegulations, setCheckedRegulations] = useState({});
     const [reportedRegulations, setReportedRegulations] = useState({});
@@ -50,13 +49,46 @@ function Rules() {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setReportedRegulations((prevReported) => ({
-            ...prevReported,
-            [currentIndex]: formData
-        }));
-        setIsFormVisible(false);
+
+        // Prepare data for backend
+        const reportData = {
+            product_name: 'Product Name', // Replace with actual product name
+            category_name: detailsArray[currentIndex].key,
+            regulation: detailsArray[currentIndex].item,
+            answers: {
+                isRegulation: formData.isRegulation,
+                relatedToProduct: formData.relatedToProduct,
+            },
+            regulation_applicable_for: formData.relatedToProduct === 'no' ? formData.applicableProduct : undefined,
+            other_suggestion: formData.suggestion,
+        };
+
+        try {
+            const response = await fetch('http://127.0.0.1:8000/report_regulation', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(reportData),
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                console.log(result.message);
+                setReportedRegulations((prevReported) => ({
+                    ...prevReported,
+                    [currentIndex]: formData
+                }));
+                setIsFormVisible(false);
+            } else {
+                const error = await response.json();
+                console.error('Error:', error);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
     };
 
     if (!regulations || !regulations.regulations) {
