@@ -190,3 +190,11 @@ button:hover {
 .report-form form button:hover {
     background-color: rgb(141, 1, 157);
 }
+
+@media (max-width: 768px) {
+    .docbutton {
+        width: 50%;
+        font-size: 14px; 
+        padding: 8px 16px; 
+    }
+}
