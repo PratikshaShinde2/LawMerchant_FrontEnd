@@ -6,6 +6,7 @@ import 'chart.js/auto';
 
 function Rules() {
     const { regulations } = useContext(RegulationsContext);
+    console.log(regulations)
     const [currentIndex, setCurrentIndex] = useState(0);
     const [checkedRegulations, setCheckedRegulations] = useState({});
     const [reportedRegulations, setReportedRegulations] = useState({});
@@ -107,6 +108,7 @@ function Rules() {
                     <p>
                         Regulation {currentIndex + 1} of {totalCount}
                     </p>
+                    <a href={regulations[detailsArray[currentIndex].key]}>open</a>
                 </div>
             )}
             
