@@ -17,7 +17,7 @@ function Page1(){
 
 
     return(
-        <div>   
+        <div  style={{ position: 'relative', minHeight: '100vh' }}>   
             <Navbar />
             <Hero />
             < div ref={searchRef}>

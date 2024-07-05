@@ -9,6 +9,8 @@
     flex-direction: column;
     gap: 1rem;
     color: gray;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .contact-container p {

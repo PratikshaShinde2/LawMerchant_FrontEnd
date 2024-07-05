@@ -13,6 +13,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
     background-color: #f0eeee;
+    margin-bottom: 2rem;
 }
 .abtcrd p{
     margin: 1rem;

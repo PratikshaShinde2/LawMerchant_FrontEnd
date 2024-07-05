@@ -5,7 +5,7 @@ import './hero.css';
 
 function Hero() {
     return (
-        <div className="container-fluid Hero">
+        <div className="container-fluid Hero" id="home">
             <div className="row align-items-center">
                 <div className="col-lg-6 col-md-12 H-left">
                     <h1>

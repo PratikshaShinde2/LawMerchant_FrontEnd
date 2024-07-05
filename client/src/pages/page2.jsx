@@ -4,6 +4,7 @@ import './page2.css';
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar/navbar";
 
+
 function Page2(){
     return(
         <div className="page2">
@@ -14,7 +15,6 @@ function Page2(){
                 <button className="btn btn-primary pro-btn mt-3">Go to home page</button> 
             </Link>
         </div>
-        
         </div>
     )
 }

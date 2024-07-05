@@ -101,7 +101,7 @@ function Search() {
     };
 
     return (
-        <div className="container rule-search">
+        <div className="container rule-search" id="search">
             <div className="category text-center">
                 <h3>Select the category of your product..</h3>
                 <div className="row cat-btns">
