@@ -17,7 +17,8 @@ function Page1(){
 
 
     return(
-        <div  style={{ position: 'relative', minHeight: '100vh' }}>   
+        <div>   
+            <div className="page" style={{ position: 'relative', minHeight: '100vh' }}>   
             <Navbar />
             <Hero />
             < div ref={searchRef}>
@@ -26,8 +27,11 @@ function Page1(){
             <div ref={aboutRef}>
             <About/>
             </div>
-            <Footer />
+            
         </div>
+        <Footer />
+        </div>
+       
     )
 }
 

@@ -7,7 +7,8 @@ import './page3.css';
 
 function Page3() {
     return (
-        <div className="page3">
+        <div>
+                <div className="page">
             <Navbar />
             <div className="contact-content">
                 <Contact />
@@ -15,8 +16,11 @@ function Page3() {
                 <button className="btn btn-primary pro-btn mt-3">Go to home page</button> 
                 </Link>
             </div>
-            <Footer />
+            
         </div>
+        <Footer />
+        </div>
+        
     );
 }
 
