@@ -8,13 +8,13 @@ const Footer = () => {
     return (
         <div className="footer">
        
-        <div className="lottie-animation">
-            <Lottie
-                animationData={animationData}
-                loop
-                autoplay
-            />
-        </div>
+                <div className="lottie-animation">
+                    <Lottie
+                        animationData={animationData}
+                        loop
+                        autoplay
+                    />
+                </div>
             <div className="sb_footer section_padding">
                 <div className="sb_footer-links">
                     <div className="sb_footer-links-div">

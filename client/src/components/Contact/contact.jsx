@@ -22,19 +22,16 @@ function Contact() {
         <div className="contact-container">
             <h3>Any Queries?</h3>
             <p>Let us know!</p>
-            <form ref={form} onSubmit={sendEmail}>
-                <div className="form-group">
+            <form ref={form} onSubmit={sendEmail} >
+                <div className="form-group input">
                     <label>Name</label>
                     <input type="text" name="from_name" required />
-                </div>
-                <div className="form-group">
                     <label>Email</label>
                     <input type="email" name="from_email" required />
-                </div>
-                <div className="form-group">
                     <label>Message</label>
                     <textarea name="message" required />
                 </div>
+                
                 <button type="submit" className="button btn send-btn ">Send</button>
             </form>
         </div>
