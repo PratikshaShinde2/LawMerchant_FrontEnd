@@ -7,7 +7,7 @@ import Navbar from "../components/Navbar/navbar";
 
 function Page2(){
     return(
-        <div className="mainpg">
+        <div className="page">
              <div className="page2">
             <Navbar/>
             <div className="pg2-cnt">
