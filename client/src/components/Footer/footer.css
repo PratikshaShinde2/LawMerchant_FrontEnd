@@ -24,6 +24,8 @@
 .sb_footer{
     display: flex;
     flex-direction: column;
+    padding: 2rem;
+    position: relative;
 }
 
 .sb_footer-links{
@@ -97,6 +99,7 @@ a{
 hr{
     color: white !important;
     width: 100%;
+    margin-top: 0,5rem;
 }
 
 .sb_footer-copyright p{
@@ -104,6 +107,7 @@ hr{
     line-height: 44px;
     color: rgb(225,225,225);
     font-weight: 600;
+    margin-top: 0.5rem;
 }
 .f-btn {
     background-color: #e6f2ff;
@@ -135,9 +139,14 @@ hr{
         font-size: 44px;
         line-height: 50px;
     }
+
+    .f-btn{
+        padding: 0.5rem 1.5rem;
+        font-size: 14px;
+    }
 }
 
-@media screen and (max-width: 550px){
+@media screen and (max-width: 768px){
     .sb_footer-heading h1{
         font-size: 34px;
         line-height: 42px;
@@ -163,13 +172,53 @@ hr{
 
     .sb_footer-below-links p{
         margin-left: 0rem;
-        margin-top: 1rem;
+        margin-top: 0rem;
+    }
+
+    .f-btn{
+        padding: 0.4rem 1.2rem;
+        font-size: 12px;
+    }
+    .footer{
+        height: 80vh;
     }
 }
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 480px){
     .sb_footer0-heading h1{
         font-size: 27px;
         line-height: 38px;
     }
-}
+
+    .lottie-animation{
+        width: 150%;
+        height: 150%;
+        top: -25%;
+        left: -25%;
+    }
+
+    .f-btn{
+        padding: 0.3rem 1rem;
+        font-size: 10px;
+    }
+
+    .sb_footer-below{
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-below-links{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sb_footer-below-links p{
+        margin-left: 0;
+        margin-top: -0.8rem;
+    }
+    
+    .footer{
+        height: 70vh;
+    }
+} 
