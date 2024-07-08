@@ -67,6 +67,7 @@
 .pro-btn {
     background-color: rgb(99, 5, 168);
     border-color: rgb(99, 5, 168);
+    width: 20%;
 }
 
 .pro-btn:hover {
@@ -121,4 +122,61 @@
 }
 .pro-btng2{
     width: 20%;
+}
+
+@media (max-width: 768px) {
+    .rule-search {
+        margin: 3rem 0;
+        padding: 1rem;
+    }
+
+    .searchbar {
+        flex-direction: column;
+    }
+
+    .pro-btn{
+        width: 50%;
+        margin-top: 1rem;
+    }
+
+    .searchbar button {
+        width: 100%;
+    }
+
+    .rules {
+        padding: 1rem 0;
+    }
+
+    .cat-btns {
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .rule-search {
+        margin: 1rem 0;
+        padding: 0.5rem;
+    }
+
+    .searchbar {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .searchbar input, .searchbar button {
+        width: 50%;
+    }
+
+    .pro-btn{
+        width: 50%;
+        margin-top: 1rem;
+    }
+
+    .rules {
+        padding: 0.5rem 0;
+    }
+
+    .cat-btns {
+        gap: 0.5rem;
+    }
 }
