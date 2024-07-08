@@ -1,4 +1,3 @@
-/* hero.css */
 .Hero {
     margin-top: 5rem;
 }
@@ -25,16 +24,66 @@
     padding: 2rem 0;
 }
 
-.H-right {
+
+.H-right{
     flex: 1;
+    position: relative;
 }
 
-@media (max-width: 767px) {
+.hero-animation {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: -1; 
+    width: 100%; 
+    max-width: 100%; 
+    height: auto; 
+}
+
+
+@media (max-width: 768px) {
+    .Hero {
+        flex-direction: column; 
+        align-items: center; 
+        margin-top: 3rem; 
+    }
+
     .H-left h1 {
         font-size: 2.5rem; 
+        text-align: center; 
     }
+
     .H-left, .H-right {
-        text-align: center;
-        padding: 1rem;
+        text-align: center; 
+        padding: 1rem; 
+    }
+
+    .hero-animation {
+        width: 100%;
+        max-width: 100%; 
+        height: auto; 
     }
 }
+
+@media (max-width: 480px) {
+    .H-left h1 {
+        font-size: 1.5rem; 
+    }
+
+    .H-left h4 {
+        padding: 0.5rem 0;
+        font-size: 1rem;
+    }
+
+    .H-left span {
+        padding: 0.5rem 0;
+        font-size: 1rem; 
+    }
+
+    .hero-animation {
+        width: 100%; 
+        max-width: 100%; 
+        height: auto; 
+    }
+} 
