@@ -96,6 +96,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
+
 }
 .result-buttons button{
     width: 100%;
@@ -141,15 +142,28 @@
     }
 
     .searchbar button {
-        width: 100%;
+        width: 50%;
     }
 
     .rules {
         padding: 1rem 0;
+        width: 90%;
+        margin: 0 auto;
     }
 
     .cat-btns {
         gap: 0.5rem;
+    }
+
+    .result-buttons{
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .result-buttons button{
+        flex: 1 1 50%;
+        padding: 0rem 1rem;
     }
 }
 
@@ -175,10 +189,65 @@
     }
 
     .rules {
-        padding: 0.5rem 0;
+        padding: 0.5rem;
+        width: 100%;
     }
 
     .cat-btns {
         gap: 0.5rem;
     }
+
+    .result-buttons{
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-right: 1rem;
+
+    }
+
+    .result-buttons button{
+        width: 100%;
+    }
+
+    @media (max-width: 450px) {
+        .rule-search {
+            margin: 1rem 0;
+            padding: 0.5rem;
+        }
+    
+        .searchbar {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    
+        .searchbar input,
+        .searchbar button {
+            width: 100%;
+        }
+    
+        .pro-btn {
+            width: 100%;
+            margin-top: 1rem;
+            height: 100%;
+        }
+    
+        .rules {
+            padding: 0.5rem;
+            width: 100%;
+            margin: 0 auto;
+        }
+    
+        .cat-btns {
+            gap: 0.5rem;
+        }
+    
+        .result-buttons {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    
+        .result-buttons button {
+            width: 100%;
+        }
+    }
+
 }
