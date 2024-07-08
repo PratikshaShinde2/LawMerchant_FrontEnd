@@ -55,7 +55,28 @@ button {
  }
 
 
-
+ .page {
+   margin: 2rem 10rem;
+ }
+ 
+ @media (max-width: 1200px) {
+   .page {
+     margin: 2rem 5rem;
+   }
+ }
+ 
+ @media (max-width: 768px) {
+   .page {
+     margin: 1rem 1rem;
+   }
+ }
+ 
+ @media (max-width: 480px) {
+   .page {
+     margin: 1px 1px;
+   }
+ }
+ 
  /* .input {
   border: none;
   padding: 1rem;

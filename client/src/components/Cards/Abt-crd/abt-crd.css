@@ -1,4 +1,4 @@
-.abtcrd{
+.abtcrd {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,13 +15,53 @@
     background-color: #f0eeee;
     margin-bottom: 2rem;
 }
-.abtcrd p{
+
+.abtcrd p {
     margin: 1rem;
 }
-.abtcrd:hover{
+
+.abtcrd:hover {
     transform: scale(1.05);
     box-shadow: 1px 1px 1px 3px rgba(128, 0, 128, 0.533);
     background-color: rgba(141, 1, 157, 0.164);
 }
 
 
+@media (max-width: 768px) {
+    .abtcrd {
+        padding: 0.5rem;
+    }
+
+    .abtcrd p {
+        margin: 0.5rem;
+    }
+
+    .abtcrd:hover {
+        transform: scale(1.03);
+        box-shadow: 1px 1px 1px 2px rgba(128, 0, 128, 0.533);
+    }
+}
+
+
+@media (max-width: 480px) {
+    .abtcrd {
+        padding: 0.5rem;
+    }
+
+    .abtcrd p {
+        margin: 0.5rem;
+    }
+
+    .abtcrd:hover {
+        transform: scale(1.02);
+        box-shadow: 1px 1px 1px 1px rgba(128, 0, 128, 0.533);
+    }
+
+    .abthead h3 {
+        font-size: 1rem;
+    }
+
+    .abtdes p {
+        font-size: 0.7rem;
+    }
+}
