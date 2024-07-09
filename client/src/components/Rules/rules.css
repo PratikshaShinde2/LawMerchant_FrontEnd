@@ -66,8 +66,7 @@ button:hover {
 }
 
 .chart-container {
-    width: 40%;
-    
+    width: 60%;
     margin-top: 5%; 
 }
 
@@ -113,12 +112,12 @@ button:hover {
         opacity: 1;
     }
 }
+ 
 
-/* Media queries for smaller screens */
 @media (max-width: 768px) {
     .displayrules {
-        padding: 2rem; /* Adjust padding for smaller screens */
-        border-radius: 2rem; /* Adjust border radius */
+        padding: 2rem; 
+        border-radius: 2rem; 
     }
 
     .rule-item {
@@ -132,6 +131,7 @@ button:hover {
 
     .chart-container {
         margin-top: 3%; 
+        width: 75%;
     }
 }
 

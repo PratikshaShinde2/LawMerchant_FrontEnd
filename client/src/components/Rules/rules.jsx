@@ -13,7 +13,7 @@ function Rules() {
     const [formData, setFormData] = useState({
         isRegulation: '',
         relatedToProduct: '',
-        applicableProduct: '',
+        applicableProduct: '', 
         suggestion: ''
     });
 

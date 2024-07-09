@@ -7,13 +7,13 @@ import Navbar from "../components/Navbar/navbar";
 
 function Page2(){
     return(
-        <div className="page">
+        <div className="page"> 
              <div className="page2">
             <Navbar/>
             <div className="pg2-cnt">
                 <Rules/>
                 <Link to={"/"}>
-                    <button className="btn btn-primary pro-btn mt-3">Go to home page</button> 
+                    <button className="btn btn-primary pro-btn mt-3 homebtn">Go to home page</button> 
                 </Link>
             </div>
           </div>

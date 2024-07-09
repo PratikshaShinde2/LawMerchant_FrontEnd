@@ -13,7 +13,7 @@ function Page3() {
             <div className="contact-content">
                 <Contact />
                 <Link to={"/"}>
-                <button className="btn btn-primary pro-btn mt-3">Go to home page</button> 
+                <button className="btn btn-primary pro-btn mt-3 homebtn">Go to home page</button> 
                 </Link>
             </div>
             

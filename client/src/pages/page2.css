@@ -9,3 +9,6 @@
     flex-direction: column;
     gap: 4rem;
 }
+.homebtn{
+    width: 100%;
+}
