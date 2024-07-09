@@ -69,3 +69,24 @@ button:hover {
     background-color: rgb(141, 1, 157);
     border-color: rgb(141, 1, 157);
 }
+
+@media (max-width: 768px) {
+    .contact-container {
+        width: calc(100% - 40px); /* Adjuste width with gap */
+        margin: 20px auto; 
+        padding: 1.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-container {
+        width: calc(100% - 20px); /* Adjuste width with smaller gap */
+        margin: 10px auto; 
+        padding: 1rem;
+    }
+}
