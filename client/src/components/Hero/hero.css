@@ -1,9 +1,15 @@
 .Hero {
     margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    position: relative;
 }
 
 .H-left {
     flex: 1;
+    position: relative; 
+    z-index: 1; 
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .H-left h1 {
@@ -24,51 +30,76 @@
     padding: 2rem 0;
 }
 
-
-.H-right{
+.H-right {
     flex: 1;
     position: relative;
 }
 
 .hero-animation {
-    position: absolute; 
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
-    z-index: -1; 
-    width: 100%; 
-    max-width: 100%; 
-    height: auto; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
 }
-
 
 @media (max-width: 768px) {
     .Hero {
-        flex-direction: column; 
-        align-items: center; 
-        margin-top: 3rem; 
+        flex-direction: column;
+        align-items: center;
+        margin-top: 3rem;
+        position: relative;
+    }
+
+    .H-left {
+        text-align: center;
+        padding: 1rem;
+        width: 100%;
+        order: 1;
+        position: relative;
+        z-index: 1; 
+        padding: 2rem;
     }
 
     .H-left h1 {
-        font-size: 2.5rem; 
-        text-align: center; 
+        font-size: 2.8rem; 
     }
 
-    .H-left, .H-right {
-        text-align: center; 
-        padding: 1rem; 
+    .H-right {
+        text-align: center;
+        padding: 1rem;
+        width: 100%;
+        order: 2;
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+        z-index: 0;
     }
 
     .hero-animation {
         width: 100%;
-        max-width: 100%; 
-        height: auto; 
+        max-width: 100%;
+        height: auto;
     }
 }
 
 @media (max-width: 480px) {
+    .H-left {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+        order: 1;
+        position: relative;
+        z-index: 1; 
+    }
+
     .H-left h1 {
-        font-size: 1.5rem; 
+        font-size: 1.5rem;
     }
 
     .H-left h4 {
@@ -78,12 +109,25 @@
 
     .H-left span {
         padding: 0.5rem 0;
-        font-size: 1rem; 
+        font-size: 1rem;
+    }
+
+    .H-right {
+        text-align: center;
+        padding: 1rem;
+        width: 100%;
+        order: 2;
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+        z-index: 0;
     }
 
     .hero-animation {
-        width: 100%; 
-        max-width: 100%; 
-        height: auto; 
+        width: 100%;
+        max-width: 100%;
+        height: auto;
     }
-} 
+}
