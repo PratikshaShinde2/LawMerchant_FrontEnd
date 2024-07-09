@@ -6,7 +6,10 @@ function About(){
     return(
         <div className="abtcards">
             <div className="abttitle">
-                <h2>About Us</h2>
+                <div className="heading">
+                    <h2>About Us</h2>
+                </div>
+                
             </div>
             <div className="titldes"> 
             <Abt 

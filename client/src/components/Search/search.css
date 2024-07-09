@@ -5,16 +5,38 @@
     border-radius: 8px;
     width: 100%;
 }
-.searchbar{
+
+.heading {
+    padding: 1.5rem;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(245, 240, 249, 1) 100%);
+    border-radius: 3.5rem;
+}
+
+.cat-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+}
+
+.searchbar {
     width: 100%;
 }
 
 .searchbar input {
     color: aliceblue;
+    transition: border-color 0.3s, background-color 0.3s;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(245, 240, 249, 1) 100%);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .searchbar input:hover {
-    border-color: rgb(141, 1, 157);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(68, 5, 177, 0.249) 100%);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
 .searchbar button {
@@ -38,6 +60,18 @@
     align-items: center;
 }
 
+.result-buttons {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.result-buttons button {
+    width: 100%;
+    text-align: left;
+}
+
 .category {
     display: flex;
     flex-direction: column;
@@ -45,21 +79,13 @@
     gap: 2rem;
 }
 
-.cat-btns {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    width: 100%;
-}
-
-.cat-btns button {
+.category button {
     width: 100%;
     border-color: rgb(99, 5, 168);
     color: black;
 }
 
-.cat-btns button:hover {
+.category button:hover {
     border-color: rgb(141, 1, 157);
     background-color: rgb(141, 1, 157);
 }
@@ -75,6 +101,7 @@
     background-color: rgb(141, 1, 157);
     border-color: rgb(141, 1, 157);
 }
+
 .btn-outline-custom {
     background-color: transparent;
     color: #007bff;
@@ -88,166 +115,28 @@
 
 .btn-custom-selected {
     background-color: rgb(99, 5, 168);
-    color: white !important; 
+    color: white !important;
     border-color: rgb(99, 5, 168);
 }
-.result-buttons{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
 
-}
-.result-buttons button{
-    width: 100%;
-    text-align: left;
-}
-.category-secondary{
+.category-secondary {
     background-color: white;
     color: black;
 }
-.category-secondary:hover{
+
+.category-secondary:hover {
     color: aliceblue;
     background-color: rgb(141, 1, 157);
     border-color: rgb(141, 1, 157);
 }
-.category-primary{
+
+.category-primary {
     background-color: rgb(99, 5, 168);
-    color: white !important; 
+    color: white !important;
     border-color: rgb(99, 5, 168);
 }
-.category-primary:hover{
-    color: aliceblue;
+
+.category-primary:hover {
     background-color: rgb(141, 1, 157);
     border-color: rgb(141, 1, 157);
-}
-.pro-btng2{
-    width: 20%;
-}
-
-@media (max-width: 768px) {
-    .rule-search {
-        margin: 3rem 0;
-        padding: 1rem;
-    }
-
-    .searchbar {
-        flex-direction: column;
-    }
-
-    .pro-btn{
-        width: 50%;
-        margin-top: 1rem;
-        height: 100%;
-    }
-
-    .searchbar button {
-        width: 50%;
-    }
-
-    .rules {
-        padding: 1rem 0;
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .cat-btns {
-        gap: 0.5rem;
-    }
-
-    .result-buttons{
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-
-    .result-buttons button{
-        flex: 1 1 50%;
-        padding: 0rem 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .rule-search {
-        margin: 1rem 0;
-        padding: 0.5rem;
-    }
-
-    .searchbar {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .searchbar input, .searchbar button {
-        width: 50%;
-    }
-
-    .pro-btn{
-        width: 50%;
-        margin-top: 1rem;
-        height: 100%;
-    }
-
-    .rules {
-        padding: 0.5rem;
-        width: 100%;
-    }
-
-    .cat-btns {
-        gap: 0.5rem;
-    }
-
-    .result-buttons{
-        flex-direction: column;
-        gap: 0.5rem;
-        margin-right: 1rem;
-
-    }
-
-    .result-buttons button{
-        width: 100%;
-    }
-
-    @media (max-width: 450px) {
-        .rule-search {
-            margin: 1rem 0;
-            padding: 0.5rem;
-        }
-    
-        .searchbar {
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-    
-        .searchbar input,
-        .searchbar button {
-            width: 100%;
-        }
-    
-        .pro-btn {
-            width: 100%;
-            margin-top: 1rem;
-            height: 100%;
-        }
-    
-        .rules {
-            padding: 0.5rem;
-            width: 100%;
-            margin: 0 auto;
-        }
-    
-        .cat-btns {
-            gap: 0.5rem;
-        }
-    
-        .result-buttons {
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-    
-        .result-buttons button {
-            width: 100%;
-        }
-    }
-
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import './search.css';
-import search from '../../animations/search.json';
+import './search.css'; // Assuming you have a CSS file named 'search.css' for styles
 import Lottie from 'lottie-react';
+import searchAnimation from '../../animations/search.json'; // Adjust path as per your project structure
 import { Link, useNavigate } from "react-router-dom";
 import { RegulationsContext } from '../../contexts/RegulationsContext';
 
@@ -74,14 +74,13 @@ function Search() {
             return;
         }
 
-        const data = { category: selectedCategory, product: searchedProduct };
+        const queryParams = new URLSearchParams({
+            product: searchedProduct,
+            productType: selectedCategory
+        }).toString();
+
         setLoading(true);
         try {
-            const queryParams = new URLSearchParams({
-                product: searchedProduct,
-                productType: selectedCategory
-            }).toString();
-
             const response = await fetch(`http://127.0.0.1:8000/getProductCategories?${queryParams}`, {
                 method: 'GET'
             });
@@ -101,9 +100,12 @@ function Search() {
     };
 
     return (
-        <div className="container rule-search" id="search">
+        <div className="container rule-search">
             <div className="category text-center">
-                <h3>Select the category of your product..</h3>
+                <div className="heading">
+                    <h3>Select the category of your product..</h3>
+                </div>
+
                 <div className="row cat-btns">
                     {["food", "Electronics", "Agriculture", "Hardware", "General"].map((category) => (
                         <div key={category} className="col-6 col-sm-4 col-md-2 mb-2">
@@ -117,6 +119,7 @@ function Search() {
                     ))}
                 </div>
             </div>
+
             <div className="searchbar text-center mt-4">
                 <form className="d-flex justify-content-center" role="search" onSubmit={handleSubmit}>
                     <input
@@ -130,9 +133,10 @@ function Search() {
                     <button className="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
+
             <div className="rules mt-4 text-center">
                 {loading ? (
-                    <Lottie animationData={search} style={{ width: '40%' }} />
+                    <Lottie animationData={searchAnimation} style={{ width: '40%' }} />
                 ) : results && results.categories ? (
                     <div>
                         <h4>Search Results:</h4>
@@ -149,7 +153,7 @@ function Search() {
                         </div>
                     </div>
                 ) : (
-                    <Lottie animationData={search} style={{ width: '40%' }} />
+                    <Lottie animationData={searchAnimation} style={{ width: '40%' }} />
                 )}
                 <button className="btn btn-primary pro-btn pro-btng2 mt-3" onClick={sendSelectedCategories}>
                     Go to product laws!

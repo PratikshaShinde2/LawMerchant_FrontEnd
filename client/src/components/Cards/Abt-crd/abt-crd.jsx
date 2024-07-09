@@ -10,6 +10,7 @@ function Abt({ title, description }) {
             <div className="abtdes">
                 <p>{description}</p>
             </div>
+            <div className="emoji">👀</div>
         </div>
     );
 }

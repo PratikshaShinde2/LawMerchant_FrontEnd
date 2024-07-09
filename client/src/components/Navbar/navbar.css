@@ -1,41 +1,87 @@
-/* navbar.css */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
 .navbar {
-    background-color: rgb(255, 255, 255);
-    /* box-shadow: 1px 1px 1px 1px rgba(102, 4, 127, 0.189);
-    border-radius: 1rem; */
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(245,240,249,1) 100%);
+    border-radius: 3.5rem;
     width: 100%;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .navbar-brand h2 {
     margin: 0; 
 }
 
+.navbar-brand img {
+    transition: transform 0.3s ease; /* Animation on hover */
+}
+
+.navbar-brand:hover img {
+    transform: scale(1.1); /* Scale up on hover */
+}
+
 .navbar-nav {
-    gap: 2rem; 
+    gap: 2rem;
+    animation: slideIn 0.5s ease-in-out;
 }
 
 .nav-link {
     cursor: pointer;
     font-size: large;
-    color: black; 
+    color: black;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
 .nav-link:hover {
-    color: rgb(141, 1, 157);
-    font-weight: bold;
+    color: rgb(141, 1, 157); /* Change color on hover */
+}
+
+.nav-link:hover .underline {
+    width: 100%;
+}
+
+.underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: rgb(141, 1, 157);
+    transition: width 0.3s ease;
 }
 
 .nav-btn {
     background-color: rgb(99, 5, 168);
     border-radius: 3rem;
     border-color: rgb(99, 5, 168);
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .nav-btn:hover {
     background-color: rgb(141, 1, 157);
     border-color: rgb(141, 1, 157);
+    transform: scale(1.05);
 }
-a{
-    text-decoration: none;
-    list-style: none;
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column; /* Adjust for smaller screens */
+    }
 }

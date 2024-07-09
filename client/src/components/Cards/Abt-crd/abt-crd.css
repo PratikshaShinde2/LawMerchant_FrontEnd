@@ -1,4 +1,31 @@
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-10%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .abtcrd {
+    position: relative; /* Necessary to position the emoji */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,10 +37,12 @@
     min-height: 200px;
     padding: 1rem;
     box-sizing: border-box;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
-    background-color: #f0eeee;
+    /* background-color: #2ebcec0c; */
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(245,240,249,1) 100%);
     margin-bottom: 2rem;
+    animation: fadeInUp 0.5s ease-in-out;
 }
 
 .abtcrd p {
@@ -21,11 +50,23 @@
 }
 
 .abtcrd:hover {
-    transform: scale(1.05);
-    box-shadow: 1px 1px 1px 3px rgba(128, 0, 128, 0.533);
-    background-color: rgba(141, 1, 157, 0.164);
+    transform: translateY(-10px);
+    box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.2);
+    background: rgba(141, 1, 157, 0.134);
 }
 
+.abtcrd:hover .emoji {
+    animation: popUp 0.5s ease forwards;
+}
+
+.emoji {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    opacity: 0;
+}
 
 @media (max-width: 768px) {
     .abtcrd {
@@ -37,11 +78,14 @@
     }
 
     .abtcrd:hover {
-        transform: scale(1.03);
-        box-shadow: 1px 1px 1px 2px rgba(128, 0, 128, 0.533);
+        transform: translateY(-5px);
+        box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .abtcrd:hover .emoji {
+        animation: popUp 0.5s ease forwards;
     }
 }
-
 
 @media (max-width: 480px) {
     .abtcrd {
@@ -53,8 +97,12 @@
     }
 
     .abtcrd:hover {
-        transform: scale(1.02);
-        box-shadow: 1px 1px 1px 1px rgba(128, 0, 128, 0.533);
+        transform: translateY(-5px);
+        box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .abtcrd:hover .emoji {
+        animation: popUp 0.5s ease forwards;
     }
 
     .abthead h3 {
