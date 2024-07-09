@@ -205,3 +205,11 @@ hr {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 3rem;
 }
+.studio p{
+    background-color: rgba(255, 255, 255, 0.899);
+    color: rgb(0, 0, 0);
+    padding: 4px;
+    text-align: center;
+    margin: 2px;
+    border-radius: 7px;
+}

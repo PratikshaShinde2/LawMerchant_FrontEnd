@@ -43,6 +43,9 @@ const Footer = () => {
                     <div className="sb_footer-copyright">
                         <p>@{new Date().getFullYear()} LawMerchant. All rights reserved</p>
                     </div>
+                    <div className="studio">
+                        <p>A project by IT-Studio</p>
+                    </div>
                     <div className="sb_footer-below-links">
                         <a href="/terms"><div><p>Terms & Conditions</p></div></a>
                         <a href="/privacy"><div><p>Privacy</p></div></a>
