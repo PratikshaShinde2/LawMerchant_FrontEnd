@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import './search.css'; // Assuming you have a CSS file named 'search.css' for styles
+import './search.css'; 
 import Lottie from 'lottie-react';
-import searchAnimation from '../../animations/search.json'; // Adjust path as per your project structure
+import searchAnimation from '../../animations/search.json'; 
 import { Link, useNavigate } from "react-router-dom";
 import { RegulationsContext } from '../../contexts/RegulationsContext';
 
@@ -55,7 +55,7 @@ function Search() {
             if (response.ok) {
                 const regulations = await response.json();
                 console.log('Categories sent successfully:', regulations);
-                setRegulations(regulations); // Update the regulations in context
+                setRegulations(regulations); 
                 navigate("/rules");
             } else {
                 console.error('Failed to send categories');

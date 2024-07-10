@@ -50,7 +50,7 @@
 }
 
 .nav-link:hover {
-    color: rgb(141, 1, 157); /* Change color on hover */
+    color: rgb(141, 1, 157); 
 }
 
 .nav-link:hover .underline {
@@ -82,6 +82,6 @@
 
 @media (max-width: 768px) {
     .navbar-nav {
-        flex-direction: column; /* Adjust for smaller screens */
+        flex-direction: column;
     }
 }

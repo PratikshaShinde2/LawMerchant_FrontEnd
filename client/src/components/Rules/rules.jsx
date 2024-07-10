@@ -17,7 +17,7 @@ function Rules() {
         suggestion: ''
     });
 
-    // Flatten the details array
+ 
     const detailsArray = regulations && regulations.regulations 
         ? Object.entries(regulations.regulations).flatMap(([key, array]) => array.map(item => ({ key, item }))) 
         : [];

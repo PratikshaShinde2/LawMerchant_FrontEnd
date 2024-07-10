@@ -97,7 +97,7 @@ button:hover {
 
 @media (max-width: 768px) {
     .contact-container {
-        width: calc(100% - 40px); /* Adjuste width with gap */
+        width: calc(100% - 40px); 
         margin: 20px auto; 
         padding: 1.5rem;
     }
@@ -110,7 +110,7 @@ button:hover {
 
 @media (max-width: 480px) {
     .contact-container {
-        width: calc(100% - 20px); /* Adjuste width with smaller gap */
+        width: calc(100% - 20px); 
         margin: 10px auto; 
         padding: 1rem;
     }
